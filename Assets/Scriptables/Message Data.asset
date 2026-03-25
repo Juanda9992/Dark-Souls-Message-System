@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496bad1afeb0a2c4594900f2f3e678cc, type: 3}
+  m_Name: Message Data
+  m_EditorClassIdentifier: 
+  templatesArray:
+  - "**** ahead\t\r"
+  - "no **** ahead\t\r"
+  - "**** required ahead\t\r"
+  - "be wary of ****\t\r"
+  - "try ****\t\r"
+  - "likely ****\t\r"
+  - "first off, ****\t\r"
+  - "seek ****\t\r"
+  - "still no ****...\t\r"
+  - "why is it always ****?\t\r"
+  - "if only I had a ****...\t\r"
+  - "didn't expect ****...\t\r"
+  - "visions of ****...\t\r"
+  - "could this be a ****?\t\r"
+  - "time for ****\t\r"
+  - "****, O ****\t\r"
+  - "behold, ****!\t\r"
+  - "offer ****\t\r"
+  - "praise the ****!\t\r"
+  - "let there be ****\t\r"
+  - "ahh, ****...\t\r"
+  - "****\t\r"
+  - "****!\t\r"
+  - "****?\t\r"
+  - '****...'
+  wordsArray:
+  - "enemy\t\r"
+  - "weak foe\t\r"
+  - "strong foe\t\r"
+  - "monster\t\r"
+  - "dragon\t\r"
+  - "boss\t\r"
+  - "sentry\t\r"
+  - "group\t\r"
+  - "pack\t\r"
+  - "decoy\t\r"
+  - "undead\t\r"
+  - "soldier\t\r"
+  - "knight\t\r"
+  - "cavalier\t\r"
+  - "archer\t\r"
+  - "sniper\t\r"
+  - "mage\t\r"
+  - "ordnance\t\r"
+  - "monarch\t\r"
+  - "lord\t\r"
+  - "demi-human\t\r"
+  - "outsider\t\r"
+  - "giant\t\r"
+  - "horse\t\r"
+  - "dog\t\r"
+  - "wolf\t\r"
+  - "rat\t\r"
+  - "beast\t\r"
+  - "bird\t\r"
+  - "raptor\t\r"
+  - "snake\t\r"
+  - "crab\t\r"
+  - "prawn\t\r"
+  - "octopus\t\r"
+  - "bug\t\r"
+  - "scarab\t\r"
+  - "slug\t\r"
+  - "wraith\t\r"
+  - "skeleton\t\r"
+  - "monstrosity\t\r"
+  - ill-omened creature
+  conjunctionsArray:
+  - "and then\t\r"
+  - "or\t\r"
+  - "but\t\r"
+  - "therefore\t\r"
+  - "in short\t\r"
+  - "except\t\r"
+  - "by the way\t\r"
+  - "so to speak\t\r"
+  - "all the more\t\r"
+  - ','
+  textToParse: "and then\t\r\nor\t\r\nbut\t\r\ntherefore\t\r\nin short\t\r\nexcept\t\r\nby
+    the way\t\r\nso to speak\t\r\nall the more\t\r\n,"
+  arrayIndex: 2
