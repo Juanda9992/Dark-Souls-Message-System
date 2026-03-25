@@ -19,6 +19,9 @@ public class PlayerCamera : MonoBehaviour
         cameraActions.action.Enable();
 
         orbital = virtualCamera.GetCinemachineComponent<CinemachineOrbitalTransposer>();
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame

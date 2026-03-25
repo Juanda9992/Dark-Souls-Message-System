@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float movemenSpeed;
 
+    [SerializeField] private Transform camTransform;
     private float horizontalAxis,verticalAxis;
 
     void Awake()
@@ -24,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        rb.velocity = new Vector3(horizontalAxis,rb.velocity.y,verticalAxis) * movemenSpeed;
+        Vector3 movement = horizontalAxis * camTransform.right +verticalAxis*camTransform.forward;
+        movement.y = rb.velocity.y;
+        rb.velocity = movement * movemenSpeed;
     }
 }
