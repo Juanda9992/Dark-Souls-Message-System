@@ -28,7 +28,7 @@ public class MessageConstructorUI : MonoBehaviour
 
         for(int i = 0; i< phrasesContainer.wordsClasificationsArray.Length;i++)
         {
-            wordsSectionHandleUI.InstantiateSectionButton(phrasesContainer.wordsClasificationsArray[i].wordClasificationTitle);
+            wordsSectionHandleUI.InstantiateSectionButton(phrasesContainer.wordsClasificationsArray[i]);
         }
     }
 }
