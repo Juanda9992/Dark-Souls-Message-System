@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -11,29 +12,31 @@ public class MessageConstructorUI : MonoBehaviour
     [SerializeField] private ButtonPhrase buttonPhrasePrefab;
 
     [SerializeField] private TextMeshProUGUI messageText;
+    [SerializeField] private List<string> stringsList;
     private string messageCreated;
 
-    private string lastTemplate,lastWord;
+    private string lastTemplate, lastWord, lastConjunction, lastPhrase;
     void Awake()
     {
         SetUpUIButtons();
         messageText.text = messageCreated;
+        stringsList = new List<string>(new string[5]);
     }
 
     private void SetUpUIButtons()
     {
-        for(int i = 0; i< phrasesContainer.templatesArray.Length;i++)
+        for (int i = 0; i < phrasesContainer.templatesArray.Length; i++)
         {
-            ButtonPhrase instantiatedButton = Instantiate(buttonPhrasePrefab,templatesParent);
-            instantiatedButton.SetUpButton(phrasesContainer.templatesArray[i],this,PhraseCategory.Template);
+            ButtonPhrase instantiatedButton = Instantiate(buttonPhrasePrefab, templatesParent);
+            instantiatedButton.SetUpButton(phrasesContainer.templatesArray[i], this, PhraseCategory.Template);
         }
-        for(int i = 0; i< phrasesContainer.conjunctionsArray.Length;i++)
+        for (int i = 0; i < phrasesContainer.conjunctionsArray.Length; i++)
         {
-            ButtonPhrase instantiatedButton = Instantiate(buttonPhrasePrefab,conjunctionsPanel);
-            instantiatedButton.SetUpButton(phrasesContainer.conjunctionsArray[i],this,PhraseCategory.Conjunction);
+            ButtonPhrase instantiatedButton = Instantiate(buttonPhrasePrefab, conjunctionsPanel);
+            instantiatedButton.SetUpButton(phrasesContainer.conjunctionsArray[i], this, PhraseCategory.Conjunction);
         }
 
-        for(int i = 0; i< phrasesContainer.wordsClasificationsArray.Length;i++)
+        for (int i = 0; i < phrasesContainer.wordsClasificationsArray.Length; i++)
         {
             wordsSectionHandleUI.InstantiateSectionButton(phrasesContainer.wordsClasificationsArray[i]);
         }
@@ -43,29 +46,58 @@ public class MessageConstructorUI : MonoBehaviour
 
     public void AddToWord(string word, PhraseCategory phraseCategory)
     {
-        if(phraseCategory == PhraseCategory.Template)
+        if (phraseCategory == PhraseCategory.Template)
         {
-            messageCreated = word;
-            lastTemplate = word;
-
-            if(!String.IsNullOrEmpty(lastWord))
+            if (string.IsNullOrEmpty(stringsList[2]))
             {
-                messageCreated = word.Replace("****",lastWord);
+                stringsList[0] = word;
+            }
+            else
+            {
+                stringsList[3] = word;
             }
         }
-        else if(phraseCategory == PhraseCategory.Word)
+        else if (phraseCategory == PhraseCategory.Word)
         {
-            messageCreated = messageCreated.Replace("****",word);
-            lastWord = word;
-
-            if(!string.IsNullOrEmpty(lastTemplate))
+            if (string.IsNullOrEmpty(stringsList[1]))
             {
-                messageCreated = lastTemplate.Replace("****",lastWord);
-                
+                stringsList[1] = word;
+            }
+            else
+            {
+                stringsList[4] = word;
             }
         }
+        else if (phraseCategory == PhraseCategory.Conjunction)
+        {
+            stringsList[2] = word;
+        }
 
-        messageText.text = messageCreated;
+        ParseWordToText();
+    }
+
+    private void ParseWordToText()
+    {
+        messageCreated = stringsList[0];
+
+        string secondPhrase = string.Empty;
+        if (!string.IsNullOrEmpty(stringsList[1]))
+        {
+            messageCreated = stringsList[0].Replace("****", stringsList[1]);
+        }
+        if (!string.IsNullOrEmpty(stringsList[2]))
+        {
+            messageCreated += " " + stringsList[2];
+        }
+        if (!string.IsNullOrEmpty(stringsList[3]))
+        {
+            secondPhrase = stringsList[3];
+        }
+        if (!string.IsNullOrEmpty(stringsList[4]))
+        {
+            secondPhrase = secondPhrase.Replace("****", stringsList[4]);
+        }
+        messageText.text = messageCreated + " " + secondPhrase;
     }
 }
 

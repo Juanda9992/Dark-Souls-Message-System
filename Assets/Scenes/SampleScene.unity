@@ -606,7 +606,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -130}
-  m_SizeDelta: {x: 0, y: 100}
+  m_SizeDelta: {x: -200, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &96001455
 MonoBehaviour:
@@ -1379,6 +1379,7 @@ MonoBehaviour:
   wordsSectionHandleUI: {fileID: 664150075}
   buttonPhrasePrefab: {fileID: 629204350024563531, guid: 6a1981c29e01f994cbff3b7c652d2dfd, type: 3}
   messageText: {fileID: 96001455}
+  stringsList: []
 --- !u!4 &664150074
 Transform:
   m_ObjectHideFlags: 0
