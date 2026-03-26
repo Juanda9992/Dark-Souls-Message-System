@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class MessageConstructorUI : MonoBehaviour
 {
-    [SerializeField] private RectTransform templatesParent, wordsParent, conjunctionsPanel;
     [SerializeField] private MessageData phrasesContainer;
+    [Header("Parents to instantiate Buttons")]
     [SerializeField] private WordsSectionHandleUI wordsSectionHandleUI;
+    [SerializeField] private RectTransform templatesParent, wordsParent, conjunctionsPanel;
 
     [SerializeField] private ButtonPhrase buttonPhrasePrefab;
 
@@ -21,12 +22,20 @@ public class MessageConstructorUI : MonoBehaviour
     [SerializeField] private Button sendMessage;
     private bool editingSecondPhrase => editingSecondPhraseToggle.isOn;
     private string messageCreated;
+
+    private Button defaultTemplateButton;
     
     void Awake()
     {
         SetUpUIButtons();
         messageText.text = messageCreated;
         stringsList = new List<string>(new string[5]);
+
+    }
+
+    void Start()
+    {
+        defaultTemplateButton.onClick.Invoke();
     }
 
     private void SetUpUIButtons()
@@ -35,6 +44,11 @@ public class MessageConstructorUI : MonoBehaviour
         {
             ButtonPhrase instantiatedButton = Instantiate(buttonPhrasePrefab, templatesParent);
             instantiatedButton.SetUpButton(phrasesContainer.templatesArray[i], this, PhraseCategory.Template);
+
+            if(defaultTemplateButton == null)
+            {
+                defaultTemplateButton = instantiatedButton.GetComponent<Button>();
+            }
         }
         for (int i = 0; i < phrasesContainer.conjunctionsArray.Length; i++)
         {
@@ -45,7 +59,7 @@ public class MessageConstructorUI : MonoBehaviour
         for (int i = 0; i < phrasesContainer.wordsClasificationsArray.Length; i++)
         {
             wordsSectionHandleUI.InstantiateSectionButton(phrasesContainer.wordsClasificationsArray[i]);
-        }
+        }   
 
         deleteMessage.onClick.AddListener(DeletePhrase);
 
