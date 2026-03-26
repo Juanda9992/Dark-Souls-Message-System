@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HeaderButtonsNavigation : MonoBehaviour
 {
+    [SerializeField] private Color selectedColor, unselectedColor;
     [SerializeField] private Button[] headerButtonsArray;
     [SerializeField] private GameObject[] panelsArray;
 
@@ -39,12 +40,13 @@ public class HeaderButtonsNavigation : MonoBehaviour
 
     private void ToggleMenu(int index)
     {
-        foreach(var panel in panelsArray)
+        for(int i = 0; i< headerButtonsArray.Length;i++)
         {
-            panel.SetActive(false);
+            panelsArray[i].SetActive(false);
+            headerButtonsArray[i].image.color = unselectedColor;
         }
-
         panelsArray[index].SetActive(true);
+        headerButtonsArray[index].image.color = selectedColor;
     }
     void OnEnable()
     {

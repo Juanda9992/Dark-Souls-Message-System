@@ -38,48 +38,6 @@ MonoBehaviour:
   - "****!\t\r"
   - "****?\t\r"
   - '****...'
-  wordsArray:
-  - "enemy\t\r"
-  - "weak foe\t\r"
-  - "strong foe\t\r"
-  - "monster\t\r"
-  - "dragon\t\r"
-  - "boss\t\r"
-  - "sentry\t\r"
-  - "group\t\r"
-  - "pack\t\r"
-  - "decoy\t\r"
-  - "undead\t\r"
-  - "soldier\t\r"
-  - "knight\t\r"
-  - "cavalier\t\r"
-  - "archer\t\r"
-  - "sniper\t\r"
-  - "mage\t\r"
-  - "ordnance\t\r"
-  - "monarch\t\r"
-  - "lord\t\r"
-  - "demi-human\t\r"
-  - "outsider\t\r"
-  - "giant\t\r"
-  - "horse\t\r"
-  - "dog\t\r"
-  - "wolf\t\r"
-  - "rat\t\r"
-  - "beast\t\r"
-  - "bird\t\r"
-  - "raptor\t\r"
-  - "snake\t\r"
-  - "crab\t\r"
-  - "prawn\t\r"
-  - "octopus\t\r"
-  - "bug\t\r"
-  - "scarab\t\r"
-  - "slug\t\r"
-  - "wraith\t\r"
-  - "skeleton\t\r"
-  - "monstrosity\t\r"
-  - ill-omened creature
   conjunctionsArray:
   - "and then\t\r"
   - "or\t\r"
@@ -135,12 +93,6 @@ MonoBehaviour:
     - ' skeleton'
     - ' monstrosity'
     - ' ill-omened creature'
-    - 
-    textToParse: "enemy\t weak foe\t strong foe\t monster\t dragon\t boss\t sentry\t
-      group\t pack\t decoy\t undead\t soldier\t knight\t cavalier\t archer\t sniper\t
-      mage\t ordnance\t monarch\t lord\t demi-human\t outsider\t giant\t horse\t
-      dog\t wolf\t rat\t beast\t bird\t raptor\t snake\t crab\t prawn\t octopus\t
-      bug\t scarab\t slug\t wraith\t skeleton\t monstrosity\t ill-omened creature\t"
   - wordClasificationTitle: People
     wordCategoryArray:
     - Tarnished
@@ -187,13 +139,6 @@ MonoBehaviour:
     - ' monarch'
     - ' lord'
     - ' god'
-    textToParse: "Tarnished\t warrior\t swordfighter\t knight\t samurai\t sorcerer\t
-      cleric\t sage\t merchant\t teacher\t master\t friend\t lover\t old dear\t old
-      codger\t angel\t fat coinpurse\t pauper\t good sort\t wicked sort\t plump sort\t
-      skinny sort\t lovable sort\t pathetic sort\t strange sort\t nimble sort\t laggardly
-      sort\t invisible sort\t unfathomable sort\t giant sort\t sinner\t thief\t liar\t
-      dastard\t traitor\t pair\t trio\t noble\t aristocrat\t hero\t champion\t monarch\t
-      lord\t god"
   - wordClasificationTitle: Things
     wordCategoryArray:
     - item
@@ -241,13 +186,6 @@ MonoBehaviour:
     - ' bloodstain'
     - ' Erdtree'
     - ' Elden Ring'
-    textToParse: "item\t necessary item\t precious item\t something\t something incredible\t
-      treasure chest\t corpse\t coffin\t trap\t armament\t shield\t bow\t projectile
-      weapon\t armor\t talisman\t skill\t sorcery\t incantation\t map\t material\t
-      flower\t grass\t tree\t fruit\t seed\t mushroom\t tear\t crystal\t butterfly\t
-      bug\t dung\t grace\t door\t key\t ladder\t lever\t lift\t spritspring\t sending
-      gate\t stone astrolabe\t Birdseye Telescope\t message\t bloodstain\t Erdtree\t
-      Elden Ring"
   - wordClasificationTitle: Battle Tactics
     wordCategoryArray:
     - close-quarters battle
@@ -267,10 +205,6 @@ MonoBehaviour:
     - ' jumping off'
     - ' dashing through'
     - ' brief respite'
-    textToParse: "close-quarters battle\t ranged battle\t horseback battle\t luring
-      out\t defeating one-by-one\t taking on all at once\t rushing in\t stealth\t
-      mimicry\t confusion\t pursuit\t fleeing\t summoning\t circling around\t jumping
-      off\t dashing through\t brief respite"
   - wordClasificationTitle: Actions
     wordCategoryArray:
     - attacking
@@ -294,10 +228,6 @@ MonoBehaviour:
     - ' crouching'
     - ' target lock'
     - ' item crafting'
-    textToParse: "attacking\t jump attack\t running attack\t critical hit\t two-handing\t
-      blocking\t parrying\t guard counter\t sorcery\t incantation\t skill\t summoning\t
-      throwing\t healing\t running\t rolling\t backstepping\t jumping\t crouching\t
-      target lock\t item crafting"
   - wordClasificationTitle: Situations
     wordCategoryArray:
     - morning
@@ -342,13 +272,6 @@ MonoBehaviour:
     - ' looking away'
     - ' unnoticed'
     - ' out of stamina'
-    textToParse: "morning\t noon\t evening\t night\t clear sky\t overcast\t rain\t
-      storm\t mist\t snow\t patrolling\t procession\t crowd\t surprise attack\t ambush\t
-      pincer attack\t beating to a pulp\t battle\t reinforcements\t ritual\t explosion\t
-      high spot\t defensible spot\t climbable spot\t crossable spot\t bright spot\t
-      dark spot\t open area\t cramped area\t hiding place\t sniping spot\t recon
-      spot\t safety\t danger\t gorgeous view\t detour\t hidden path\t shortcut\t
-      dead end\t looking away\t unnoticed\t out of stamina"
   - wordClasificationTitle: Places
     wordCategoryArray:
     - high road
@@ -379,10 +302,6 @@ MonoBehaviour:
     - ' cliff'
     - ' nest'
     - ' hole'
-    textToParse: "high road\t checkpoint\t bridge\t castle\t fort\t city\t ruins\t
-      tower\t camp site\t house\t cemetary\t underground tomb\t tunnel\t cave\t evergaol\t
-      great tree\t cellar\t surface\t underground\t forest\t river\t lake\t bog\t
-      mountain\t valley\t cliff\t nest\t hole"
   - wordClasificationTitle: Directions
     wordCategoryArray:
     - east
@@ -397,8 +316,6 @@ MonoBehaviour:
     - ' up'
     - ' down'
     - ' edge'
-    textToParse: "east\t west\t south\t north\t ahead\t behind\t left\t right\t center\t
-      up\t down\t edge"
   - wordClasificationTitle: Body Parts
     wordCategoryArray:
     - head
@@ -411,7 +328,6 @@ MonoBehaviour:
     - ' core'
     - ' fingers'
     - 
-    textToParse: "head\t stomach\t back\t arms\t legs\t rump\t tail\t core\t fingers\t"
   - wordClasificationTitle: Affinities
     wordCategoryArray:
     - physical
@@ -431,9 +347,6 @@ MonoBehaviour:
     - ' sleep'
     - ' madness'
     - ' death'
-    textToParse: "physical\t standard\t striking\t slashing\t piercing\t fire\t lightning\t
-      magic\t holy\t poison\t toxic\t scarlet rot\t blood loss\t frost\t sleep\t
-      madness\t death"
   - wordClasificationTitle: Concepts
     wordCategoryArray:
     - life
@@ -494,14 +407,6 @@ MonoBehaviour:
     - ' fear'
     - ' sacrifice'
     - ' ruin'
-    textToParse: "life\t Death\t light\t dark\t stars\t fire\t Order\t chaos\t joy\t
-      wrath\t suffering\t sadness\t comfort\t bliss\t misfortune\t good fortune\t
-      bad luck\t hope\t despair\t victory\t defeat\t research\t faith\t rot\t loyalty\t
-      injustice\t secret\t opportunity\t pickle\t clue\t friendship\t love\t bravery\t
-      vigor\t fortitude\t confidence\t distracted\t unguarded\t introspection\t regret\t
-      resignation\t futility\t on the brink\t betrayal\t revenge\t destruction\t
-      recklessness\t calmness\t vigilance\t tranquility\t sound\t tears\t sleep\t
-      depths\t dregs\t fear\t sacrifice\t ruin"
   - wordClasificationTitle: Phrases
     wordCategoryArray:
     - good luck
@@ -534,13 +439,6 @@ MonoBehaviour:
     - ' beautiful...'
     - ' you don''t have the right'
     - ' are you ready?'
-    textToParse: "good luck\t look carefully\t listen carefully\t think carfeully\t
-      well done\t I did it!\t I've failed...\t here!\t not here!\t don't you dare!\t
-      do it!\t I can't take this...\t don't think\t so lonely...\t here again...\t
-      just getting started\t stay calm\t keep moving\t turn back\t give up\t don't
-      give up\t help me...\t I don't believe it...\t too high up\t I want to go home...\t
-      it's like a dream...\t seems familiar\t beautiful...\t you don't have the right\t
-      are you ready?"
   textToParse: "and then\t\r\nor\t\r\nbut\t\r\ntherefore\t\r\nin short\t\r\nexcept\t\r\nby
     the way\t\r\nso to speak\t\r\nall the more\t\r\n,"
   arrayIndex: 2
