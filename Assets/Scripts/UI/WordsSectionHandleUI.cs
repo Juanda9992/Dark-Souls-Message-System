@@ -26,7 +26,7 @@ public class WordsSectionHandleUI : MonoBehaviour
         for (int i = 0; i < clasificationContainer.wordCategoryArray.Length; i++)
         {
             ButtonPhrase buttonPhrase = Instantiate(buttonPhrasePrefab, newSection.childTransform);
-            buttonPhrase.SetUpButton(clasificationContainer.wordCategoryArray[i], messageConstructorUI);
+            buttonPhrase.SetUpButton(clasificationContainer.wordCategoryArray[i], messageConstructorUI,PhraseCategory.Word);
         }
 
         createdButtons.Add(instantiatedButton);

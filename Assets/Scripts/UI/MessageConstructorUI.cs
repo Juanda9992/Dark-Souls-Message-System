@@ -18,12 +18,12 @@ public class MessageConstructorUI : MonoBehaviour
         for(int i = 0; i< phrasesContainer.templatesArray.Length;i++)
         {
             ButtonPhrase instantiatedButton = Instantiate(buttonPhrasePrefab,templatesParent);
-            instantiatedButton.SetUpButton(phrasesContainer.templatesArray[i],this);
+            instantiatedButton.SetUpButton(phrasesContainer.templatesArray[i],this,PhraseCategory.Template);
         }
         for(int i = 0; i< phrasesContainer.conjunctionsArray.Length;i++)
         {
             ButtonPhrase instantiatedButton = Instantiate(buttonPhrasePrefab,conjunctionsPanel);
-            instantiatedButton.SetUpButton(phrasesContainer.conjunctionsArray[i],this);
+            instantiatedButton.SetUpButton(phrasesContainer.conjunctionsArray[i],this,PhraseCategory.Conjunction);
         }
 
         for(int i = 0; i< phrasesContainer.wordsClasificationsArray.Length;i++)
@@ -33,4 +33,11 @@ public class MessageConstructorUI : MonoBehaviour
 
         wordsSectionHandleUI.SetUpMenusExternally();
     }
+}
+
+public enum PhraseCategory
+{
+    Template,
+    Word,
+    Conjunction
 }
