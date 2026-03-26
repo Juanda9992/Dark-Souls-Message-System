@@ -14,7 +14,11 @@ public class MessageConstructorUI : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI messageText;
     [SerializeField] private List<string> stringsList;
+
+    [Header("Control Elements")]
     [SerializeField] private Toggle editingSecondPhraseToggle;
+    [SerializeField] private Button deleteMessage;
+    [SerializeField] private Button sendMessage;
     private bool editingSecondPhrase => editingSecondPhraseToggle.isOn;
     private string messageCreated;
     
@@ -42,6 +46,8 @@ public class MessageConstructorUI : MonoBehaviour
         {
             wordsSectionHandleUI.InstantiateSectionButton(phrasesContainer.wordsClasificationsArray[i]);
         }
+
+        deleteMessage.onClick.AddListener(DeletePhrase);
 
         wordsSectionHandleUI.SetUpMenusExternally();
     }
@@ -100,6 +106,16 @@ public class MessageConstructorUI : MonoBehaviour
             secondPhrase = secondPhrase.Replace("****", stringsList[4]);
         }
         messageText.text = messageCreated + " " + secondPhrase;
+    }
+
+    private void DeletePhrase()
+    {
+        for(int i = 0; i< stringsList.Count;i++)
+        {
+            stringsList[i] = string.Empty;   
+        }
+
+        ParseWordToText();
     }
 }
 
