@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MessageConstructorUI : MonoBehaviour
 {
@@ -13,9 +14,10 @@ public class MessageConstructorUI : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI messageText;
     [SerializeField] private List<string> stringsList;
+    [SerializeField] private Toggle editingSecondPhraseToggle;
+    private bool editingSecondPhrase => editingSecondPhraseToggle.isOn;
     private string messageCreated;
-
-    private string lastTemplate, lastWord, lastConjunction, lastPhrase;
+    
     void Awake()
     {
         SetUpUIButtons();
@@ -48,7 +50,7 @@ public class MessageConstructorUI : MonoBehaviour
     {
         if (phraseCategory == PhraseCategory.Template)
         {
-            if (string.IsNullOrEmpty(stringsList[2]))
+            if (!editingSecondPhrase)
             {
                 stringsList[0] = word;
             }
@@ -59,7 +61,7 @@ public class MessageConstructorUI : MonoBehaviour
         }
         else if (phraseCategory == PhraseCategory.Word)
         {
-            if (string.IsNullOrEmpty(stringsList[1]))
+            if (!editingSecondPhrase)
             {
                 stringsList[1] = word;
             }
