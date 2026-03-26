@@ -4,7 +4,6 @@ using UnityEngine;
 public class MessageData : ScriptableObject
 {
     public string[] templatesArray;
-    public string[] wordsArray;
     public string[] conjunctionsArray;
 
     public WordsClasificationContainer[] wordsClasificationsArray;
@@ -20,9 +19,6 @@ public class MessageData : ScriptableObject
         {
             case 0:
                 templatesArray = splittedWords;
-                break;
-            case 1:
-                wordsArray = splittedWords;
                 break;
             case 2:
                 conjunctionsArray = splittedWords;

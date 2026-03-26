@@ -4,6 +4,7 @@ public class MessageConstructorUI : MonoBehaviour
 {
     [SerializeField] private RectTransform templatesParent, wordsParent, conjunctionsPanel;
     [SerializeField] private MessageData phrasesContainer;
+    [SerializeField] private WordsSectionHandleUI wordsSectionHandleUI;
 
     [SerializeField] private ButtonPhrase buttonPhrasePrefab;
 
@@ -19,15 +20,15 @@ public class MessageConstructorUI : MonoBehaviour
             ButtonPhrase instantiatedButton = Instantiate(buttonPhrasePrefab,templatesParent);
             instantiatedButton.SetUpButton(phrasesContainer.templatesArray[i],this);
         }
-        for(int i = 0; i< phrasesContainer.wordsArray.Length;i++)
-        {
-            ButtonPhrase instantiatedButton = Instantiate(buttonPhrasePrefab,wordsParent);
-            instantiatedButton.SetUpButton(phrasesContainer.wordsArray[i],this);
-        }
         for(int i = 0; i< phrasesContainer.conjunctionsArray.Length;i++)
         {
             ButtonPhrase instantiatedButton = Instantiate(buttonPhrasePrefab,conjunctionsPanel);
             instantiatedButton.SetUpButton(phrasesContainer.conjunctionsArray[i],this);
+        }
+
+        for(int i = 0; i< phrasesContainer.wordsClasificationsArray.Length;i++)
+        {
+            wordsSectionHandleUI.InstantiateSectionButton(phrasesContainer.wordsClasificationsArray[i].wordClasificationTitle);
         }
     }
 }

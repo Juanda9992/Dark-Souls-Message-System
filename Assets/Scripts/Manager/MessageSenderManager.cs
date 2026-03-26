@@ -15,7 +15,7 @@ public class MessageSenderManager : MonoBehaviour
     {
         Dictionary<string,object> message = new Dictionary<string, object>()
         {
-            {"text","Try jumped lololol"},
+            {"text","Hola, Mi Paulita es Hermosa"},
             {"posX", 10f},
             {"posY", 20f},
             {"posZ", 50f},
