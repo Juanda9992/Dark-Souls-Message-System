@@ -15,13 +15,13 @@ public class ButtonPhrase : MonoBehaviour
     }
     public void SetUpButton(string buttonContent,MessageConstructorUI messageConstructorUI, PhraseCategory phraseCategory)
     {
-        buttonText.text = buttonContent.TrimEnd();
+        buttonText.text = buttonContent.Trim();
         _messageConstructorUI = messageConstructorUI;
         _phraseCategory = phraseCategory;
     }
 
     private void ConstructPhrase()
     {
-        Debug.Log(_phraseCategory);
+        _messageConstructorUI.AddToWord(buttonText.text,_phraseCategory);
     }
 }

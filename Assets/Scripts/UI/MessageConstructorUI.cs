@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 
 public class MessageConstructorUI : MonoBehaviour
@@ -8,9 +10,14 @@ public class MessageConstructorUI : MonoBehaviour
 
     [SerializeField] private ButtonPhrase buttonPhrasePrefab;
 
+    [SerializeField] private TextMeshProUGUI messageText;
+    private string messageCreated;
+
+    private string lastTemplate,lastWord;
     void Awake()
     {
         SetUpUIButtons();
+        messageText.text = messageCreated;
     }
 
     private void SetUpUIButtons()
@@ -32,6 +39,33 @@ public class MessageConstructorUI : MonoBehaviour
         }
 
         wordsSectionHandleUI.SetUpMenusExternally();
+    }
+
+    public void AddToWord(string word, PhraseCategory phraseCategory)
+    {
+        if(phraseCategory == PhraseCategory.Template)
+        {
+            messageCreated = word;
+            lastTemplate = word;
+
+            if(!String.IsNullOrEmpty(lastWord))
+            {
+                messageCreated = word.Replace("****",lastWord);
+            }
+        }
+        else if(phraseCategory == PhraseCategory.Word)
+        {
+            messageCreated = messageCreated.Replace("****",word);
+            lastWord = word;
+
+            if(!string.IsNullOrEmpty(lastTemplate))
+            {
+                messageCreated = lastTemplate.Replace("****",lastWord);
+                
+            }
+        }
+
+        messageText.text = messageCreated;
     }
 }
 
