@@ -30,5 +30,7 @@ public class MessageConstructorUI : MonoBehaviour
         {
             wordsSectionHandleUI.InstantiateSectionButton(phrasesContainer.wordsClasificationsArray[i]);
         }
+
+        wordsSectionHandleUI.SetUpMenusExternally();
     }
 }

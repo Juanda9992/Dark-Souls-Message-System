@@ -10,6 +10,15 @@ public class HeaderButtonsNavigation : MonoBehaviour
 
     void Awake()
     {
+        if(headerButtonsArray.Length == 0)
+        {
+            return;
+        }
+
+        SetUpMenus();
+    }
+    public void SetUpMenus()
+    {
         for(int i = 0; i<headerButtonsArray.Length;i++)
         {
             int index = i;
@@ -18,6 +27,14 @@ public class HeaderButtonsNavigation : MonoBehaviour
         }
 
         headerButtonsArray[0].onClick.Invoke();
+    }
+
+    public void LoadItemsExternaly(Button[] buttonsToLoad,GameObject[] objectsToLoad)
+    {
+        headerButtonsArray = buttonsToLoad;
+        panelsArray = objectsToLoad;
+
+        SetUpMenus(); 
     }
 
     private void ToggleMenu(int index)
