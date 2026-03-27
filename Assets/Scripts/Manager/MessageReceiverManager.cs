@@ -1,7 +1,10 @@
 using UnityEngine;
 using Firebase.Firestore;
+using System.Linq;
+using Firebase.Extensions;
 public class MessageReceiverManager : MonoBehaviour
 {
+    [SerializeField] private MessageInstantiatingManager messageInstantiatingManager;
     private FirebaseFirestore db;
     void Awake()
     {
@@ -10,11 +13,11 @@ public class MessageReceiverManager : MonoBehaviour
     [ContextMenu("Check Database entries")]
     public void GetMessages()
     {
-        db.Collection("messages").GetSnapshotAsync().ContinueWith(task=>
+        db.Collection("messages").GetSnapshotAsync().ContinueWithOnMainThread(task=>
         {
             foreach(var doc in task.Result.Documents)
             {
-                Debug.Log(doc.GetValue<string>("text"));
+                messageInstantiatingManager.InstantiateObjects(doc.ToDictionary());
             }
         });
     }

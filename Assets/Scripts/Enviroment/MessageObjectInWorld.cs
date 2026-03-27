@@ -1,6 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class MessageObject : MonoBehaviour
+public class MessageObjectInWorld : MonoBehaviour
 {
     public string messageWritten;
     private MessageReaderUI _messageReaderUI;

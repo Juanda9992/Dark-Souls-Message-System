@@ -11,7 +11,7 @@ public class PlayerMessageHandler : MonoBehaviour
     [SerializeField] private MessageConstructorUI messageConstructorUI;
     [SerializeField] private MessageReaderUI messageReaderUI;
 
-    private MessageObject messageObject;
+    private MessageObjectInWorld messageObject;
     private float timeToActivateMessageCanvas = 2f;
     void Awake()
     {
@@ -43,7 +43,7 @@ public class PlayerMessageHandler : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent<MessageObject>(out MessageObject _messageObject))
+        if(other.TryGetComponent<MessageObjectInWorld>(out MessageObjectInWorld _messageObject))
         {
             messageObject = _messageObject;
             Debug.Log("Encountered Object");
@@ -52,7 +52,7 @@ public class PlayerMessageHandler : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if(other.TryGetComponent<MessageObject>(out messageObject))
+        if(other.TryGetComponent<MessageObjectInWorld>(out messageObject))
         {
             messageObject = null;       
         }

@@ -1,0 +1,25 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Firebase.Firestore;
+using UnityEngine;
+
+public class MessageInstantiatingManager : MonoBehaviour
+{
+    [SerializeField] private MessageReaderUI messageReaderUI;
+    [SerializeField] private MessageObjectInWorld messageObjectPrefab;
+
+    public void InstantiateObjects(Dictionary<string, object> gatheredEntry)
+    {
+        float x = float.Parse(gatheredEntry["posX"].ToString());
+        float y = float.Parse(gatheredEntry["posY"].ToString());
+        float z = float.Parse(gatheredEntry["posZ"].ToString());
+
+        Vector3 coordinates = new Vector3(x, y, z);
+
+        MessageObjectInWorld obj = Instantiate(messageObjectPrefab, coordinates, Quaternion.identity);
+
+        obj.SetUpObject(gatheredEntry["text"].ToString(), messageReaderUI);
+    }
+
+}
