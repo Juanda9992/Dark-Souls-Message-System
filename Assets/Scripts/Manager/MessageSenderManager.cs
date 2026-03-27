@@ -26,20 +26,29 @@ public class MessageSenderManager : MonoBehaviour
         };
 
         db.Collection("messages").AddAsync(message);
-        messageInstantiatingManager.CreateMessageLocally(playerForwardPos,playerTransform.rotation.eulerAngles.y, messageCreated);
+        messageInstantiatingManager.CreateMessageLocally(playerForwardPos, playerTransform.rotation.eulerAngles.y, messageCreated);
     }
     [ContextMenu("Check Ground Pos")]
     private Vector3 CheckGroundPos()
     {
         Vector3 playerForwardPos = playerTransform.position + playerTransform.forward.normalized;
-        Debug.Log(playerForwardPos);
         RaycastHit hit;
 
         Vector3 groundPos = Vector3.zero;
-        if (Physics.Raycast(playerForwardPos, Vector3.down, out hit))
+        if (Physics.Raycast(playerForwardPos, playerForwardPos + (Vector3.down), out hit, 5))
         {
+            Debug.Log(hit.point);
             groundPos = hit.point;
         }
         return groundPos;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Vector3 playerForwardPos = playerTransform.position + playerTransform.forward.normalized;
+        playerForwardPos.y +=2;
+
+        Gizmos.DrawLine(playerForwardPos,playerForwardPos + (Vector3.down) *5);
     }
 }
