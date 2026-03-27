@@ -7,9 +7,8 @@ using UnityEngine.InputSystem;
 public class PlayerMessageHandler : MonoBehaviour
 {
     [SerializeField] private UnityEvent OnStartWriting;
-    [SerializeField] private GameObject messageCanvas;
     [SerializeField] private InputActionReference writeAction;
-
+    [SerializeField] private MessageConstructorUI messageConstructorUI;
 
     private float timeToActivateMessageCanvas = 2f;
     void Awake()
@@ -27,6 +26,6 @@ public class PlayerMessageHandler : MonoBehaviour
     private IEnumerator EnableWriteCanvasWithDelay()
     {
         yield return new WaitForSeconds(timeToActivateMessageCanvas);
-        messageCanvas.SetActive(true);
+        messageConstructorUI.OnShowPanel();
     }
 }

@@ -20,6 +20,8 @@ public class MessageConstructorUI : MonoBehaviour
     [SerializeField] private Toggle editingSecondPhraseToggle;
     [SerializeField] private Button deleteMessage;
     [SerializeField] private Button sendMessage;
+
+    [SerializeField] private GameObject panelMessage;
     private bool editingSecondPhrase => editingSecondPhraseToggle.isOn;
     private string messageCreated;
 
@@ -32,21 +34,18 @@ public class MessageConstructorUI : MonoBehaviour
         stringsList = new List<string>(new string[5]);
 
     }
-
-    void Start()
-    {
-        defaultTemplateButton.onClick.Invoke();
-    }
-
-    void OnEnable()
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-    }
     void OnDisable()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    public void OnShowPanel()
+    {
+        panelMessage.SetActive(true);
+        defaultTemplateButton.onClick?.Invoke();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void SetUpUIButtons()
