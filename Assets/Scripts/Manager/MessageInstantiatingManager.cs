@@ -22,4 +22,11 @@ public class MessageInstantiatingManager : MonoBehaviour
         obj.SetUpObject(gatheredEntry["text"].ToString(), messageReaderUI);
     }
 
+
+    public void CreateMessageLocally(Vector3 position,float yRotation,string message)
+    {
+        MessageObjectInWorld obj = Instantiate(messageObjectPrefab, position, Quaternion.Euler(0,yRotation,0));
+    
+        obj.SetUpObject(message,messageReaderUI);
+    }
 }

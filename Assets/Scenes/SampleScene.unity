@@ -2229,7 +2229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messageReaderUI: {fileID: 664150076}
-  messageObjectPrefab: {fileID: 0}
+  messageObjectPrefab: {fileID: -8363822692490615033, guid: 8a1a14e141675f94e88591cae183b879, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4552,6 +4552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc3c051b8a65b243ab87366531e925c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageInstantiatingManager: {fileID: 664150077}
   playerTransform: {fileID: 994109130}
 --- !u!114 &1809974341
 MonoBehaviour:
