@@ -32,6 +32,7 @@ public class MessageSenderManager : MonoBehaviour
     private Vector3 CheckGroundPos()
     {
         Vector3 playerForwardPos = playerTransform.position + playerTransform.forward.normalized;
+        Debug.Log(playerForwardPos);
         RaycastHit hit;
 
         Vector3 groundPos = Vector3.zero;
