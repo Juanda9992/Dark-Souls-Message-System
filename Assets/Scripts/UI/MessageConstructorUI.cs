@@ -39,16 +39,14 @@ public class MessageConstructorUI : MonoBehaviour
     }
     void OnDisable()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        CursorManager.HideCursor();
     }
 
     public void OnShowPanel()
     {
         panelMessage.SetActive(true);
         defaultTemplateButton.onClick?.Invoke();
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        CursorManager.ShowCursor();
     }
 
     private void SetUpUIButtons()

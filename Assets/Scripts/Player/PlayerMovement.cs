@@ -18,14 +18,13 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         movementAction.action.Enable();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        CursorManager.HideCursor();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!canMove)
+        if (!canMove)
         {
             horizontalAxis = 0;
             verticalAxis = 0;
