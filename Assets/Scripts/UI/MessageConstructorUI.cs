@@ -24,7 +24,7 @@ public class MessageConstructorUI : MonoBehaviour
     private string messageCreated;
 
     private Button defaultTemplateButton;
-    
+
     void Awake()
     {
         SetUpUIButtons();
@@ -38,6 +38,17 @@ public class MessageConstructorUI : MonoBehaviour
         defaultTemplateButton.onClick.Invoke();
     }
 
+    void OnEnable()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+    void OnDisable()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     private void SetUpUIButtons()
     {
         for (int i = 0; i < phrasesContainer.templatesArray.Length; i++)
@@ -45,7 +56,7 @@ public class MessageConstructorUI : MonoBehaviour
             ButtonPhrase instantiatedButton = Instantiate(buttonPhrasePrefab, templatesParent);
             instantiatedButton.SetUpButton(phrasesContainer.templatesArray[i], this, PhraseCategory.Template);
 
-            if(defaultTemplateButton == null)
+            if (defaultTemplateButton == null)
             {
                 defaultTemplateButton = instantiatedButton.GetComponent<Button>();
             }
@@ -59,7 +70,7 @@ public class MessageConstructorUI : MonoBehaviour
         for (int i = 0; i < phrasesContainer.wordsClasificationsArray.Length; i++)
         {
             wordsSectionHandleUI.InstantiateSectionButton(phrasesContainer.wordsClasificationsArray[i]);
-        }   
+        }
 
         deleteMessage.onClick.AddListener(DeletePhrase);
 
@@ -124,9 +135,9 @@ public class MessageConstructorUI : MonoBehaviour
 
     private void DeletePhrase()
     {
-        for(int i = 0; i< stringsList.Count;i++)
+        for (int i = 0; i < stringsList.Count; i++)
         {
-            stringsList[i] = string.Empty;   
+            stringsList[i] = string.Empty;
         }
 
         ParseWordToText();
