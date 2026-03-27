@@ -14,10 +14,10 @@ public class MessageInstantiatingManager : MonoBehaviour
         float x = float.Parse(gatheredEntry["posX"].ToString());
         float y = float.Parse(gatheredEntry["posY"].ToString());
         float z = float.Parse(gatheredEntry["posZ"].ToString());
-
+        float rot = float.Parse(gatheredEntry["rotY"].ToString());
         Vector3 coordinates = new Vector3(x, y, z);
 
-        MessageObjectInWorld obj = Instantiate(messageObjectPrefab, coordinates, Quaternion.identity);
+        MessageObjectInWorld obj = Instantiate(messageObjectPrefab, coordinates, Quaternion.Euler(0,rot,0));
 
         obj.SetUpObject(gatheredEntry["text"].ToString(), messageReaderUI);
     }
