@@ -136,7 +136,7 @@ public class MessageConstructorUI : MonoBehaviour
 
     private void SendPhrase()
     {
-        OnMessageSend?.Invoke(messageCreated);
+        OnMessageSend?.Invoke(messageText.text);
     }
 
     private void DeletePhrase()
