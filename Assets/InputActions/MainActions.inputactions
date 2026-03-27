@@ -17,7 +17,7 @@
                 },
                 {
                     "name": "Camera",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "7ee7140e-fcd1-4f4c-bcbb-f7de9ce71a48",
                     "expectedControlType": "Vector2",
                     "processors": "",
