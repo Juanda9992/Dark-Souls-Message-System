@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Firebase.Auth;
+using Firebase.Extensions;
+using UnityEngine.Events;
 public class FirebaseAuthenticator : MonoBehaviour
 {
+    [SerializeField] private UnityEvent OnAuthCompleted;
     private FirebaseAuth firebaseAuth;
 
     void Start()
     {
         firebaseAuth = FirebaseAuth.DefaultInstance;
 
-        firebaseAuth.SignInAnonymouslyAsync().ContinueWith(task=>
+        firebaseAuth.SignInAnonymouslyAsync().ContinueWithOnMainThread(task=>
         {
             if (task.IsCompleted)
             {
-                Debug.Log("Login Ok");
+                OnAuthCompleted?.Invoke();
             }
         });
     }

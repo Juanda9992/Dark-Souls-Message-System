@@ -9,7 +9,6 @@ public class MessageReceiverManager : MonoBehaviour
     void Awake()
     {
         db = FirebaseFirestore.DefaultInstance;
-        GetMessages();
     }
     [ContextMenu("Check Database entries")]
     public void GetMessages()
