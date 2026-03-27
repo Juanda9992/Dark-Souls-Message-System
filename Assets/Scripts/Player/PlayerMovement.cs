@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private PlayerAnimations _playerAnimations;
     [SerializeField] private InputActionReference movementAction;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float movemenSpeed;
@@ -26,6 +25,9 @@ public class PlayerMovement : MonoBehaviour
         horizontalAxis = movementAction.action.ReadValue<Vector2>().x;
         verticalAxis = movementAction.action.ReadValue<Vector2>().y;
 
+        _playerAnimations.SetPlayerWalkingState(horizontalAxis != 0 || verticalAxis != 0);
+
+
     }
     void FixedUpdate()
     {
@@ -34,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         if (movement != Vector3.zero)
         {
             Quaternion rotation = Quaternion.LookRotation(movement.normalized);
-            visualModel.localRotation = Quaternion.Slerp(visualModel.localRotation,rotation,rotSpeed * Time.fixedDeltaTime);
+            visualModel.localRotation = Quaternion.Slerp(visualModel.localRotation, rotation, rotSpeed * Time.fixedDeltaTime);
         }
         rb.velocity = movement * movemenSpeed;
     }

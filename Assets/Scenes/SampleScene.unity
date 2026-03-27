@@ -2671,6 +2671,7 @@ GameObject:
   - component: {fileID: 994109131}
   - component: {fileID: 994109133}
   - component: {fileID: 994109134}
+  - component: {fileID: 994109135}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -2757,6 +2758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6444d5bc9361a844fbe0cf787acc3c48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerAnimations: {fileID: 994109135}
   movementAction: {fileID: -8218826783659746064, guid: 0ab9bd6d4b8780748aef25eeda6310c2, type: 3}
   rb: {fileID: 994109131}
   movemenSpeed: 5
@@ -2779,6 +2781,19 @@ MonoBehaviour:
   virtualCamera: {fileID: 1666509231}
   minY: -2
   maxY: 4
+--- !u!114 &994109135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994109129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e959b22083ef7464d87b4d24d4546fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 136013771}
 --- !u!4 &1017164685 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1812909498023395591, guid: 41ad22311929a034fa4678416d2ed8bc, type: 3}
