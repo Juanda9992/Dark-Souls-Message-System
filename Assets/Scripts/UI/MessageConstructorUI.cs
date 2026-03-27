@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class MessageConstructorUI : MonoBehaviour
@@ -22,6 +23,8 @@ public class MessageConstructorUI : MonoBehaviour
     [SerializeField] private Button sendMessage;
 
     [SerializeField] private GameObject panelMessage;
+
+    [SerializeField] private UnityEvent<string> OnMessageSend;
     private bool editingSecondPhrase => editingSecondPhraseToggle.isOn;
     private string messageCreated;
 
@@ -71,6 +74,7 @@ public class MessageConstructorUI : MonoBehaviour
             wordsSectionHandleUI.InstantiateSectionButton(phrasesContainer.wordsClasificationsArray[i]);
         }
 
+        sendMessage.onClick.AddListener(SendPhrase);
         deleteMessage.onClick.AddListener(DeletePhrase);
 
         wordsSectionHandleUI.SetUpMenusExternally();
@@ -130,6 +134,11 @@ public class MessageConstructorUI : MonoBehaviour
             secondPhrase = secondPhrase.Replace("****", stringsList[4]);
         }
         messageText.text = messageCreated + " " + secondPhrase;
+    }
+
+    private void SendPhrase()
+    {
+        OnMessageSend?.Invoke(messageCreated);
     }
 
     private void DeletePhrase()
