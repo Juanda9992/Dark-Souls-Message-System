@@ -10,4 +10,8 @@ public class PlayerAnimations : MonoBehaviour
     {
         playerAnimator.SetFloat("MovementInput",isMoving ? 1:0);
     }
+    public void SetPlayerWriting(bool writing)
+    {
+        playerAnimator.SetBool("Writing",writing);
+    }
 }

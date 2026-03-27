@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Transform visualModel;
     private float horizontalAxis, verticalAxis;
+    private bool canMove = true;
 
     void Awake()
     {
@@ -22,6 +23,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!canMove)
+        {
+            horizontalAxis = 0;
+            verticalAxis = 0;
+            return;
+        }
         horizontalAxis = movementAction.action.ReadValue<Vector2>().x;
         verticalAxis = movementAction.action.ReadValue<Vector2>().y;
 
@@ -39,5 +46,10 @@ public class PlayerMovement : MonoBehaviour
             visualModel.localRotation = Quaternion.Slerp(visualModel.localRotation, rotation, rotSpeed * Time.fixedDeltaTime);
         }
         rb.velocity = movement * movemenSpeed;
+    }
+
+    public void SetMovementEnabled(bool enable)
+    {
+        canMove = enable;
     }
 }
