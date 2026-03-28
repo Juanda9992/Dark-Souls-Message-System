@@ -35,7 +35,7 @@ public class MessageSenderManager : MonoBehaviour
         RaycastHit hit;
 
         Vector3 groundPos = Vector3.zero;
-        if (Physics.Raycast(playerForwardPos, playerForwardPos + (Vector3.down), out hit, 5))
+        if (Physics.Raycast(playerForwardPos,Vector3.down, out hit, 5))
         {
             Debug.Log(hit.point);
             groundPos = hit.point;
@@ -49,6 +49,6 @@ public class MessageSenderManager : MonoBehaviour
         Vector3 playerForwardPos = playerTransform.position + playerTransform.forward.normalized;
         playerForwardPos.y +=2;
 
-        Gizmos.DrawLine(playerForwardPos,playerForwardPos + (Vector3.down) *5);
+        Gizmos.DrawLine(playerForwardPos,playerForwardPos + Vector3.down *5);
     }
 }
