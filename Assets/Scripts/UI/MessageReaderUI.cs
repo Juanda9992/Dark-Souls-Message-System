@@ -15,7 +15,7 @@ public class MessageReaderUI : MonoBehaviour
     public void OpenMessage(string text)
     {
         CursorManager.ShowCursor();
-
+        Debug.Log("Opened Message");
         messagePanel.SetActive(true);
         messageText.text = text;
     }

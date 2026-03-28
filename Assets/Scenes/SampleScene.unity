@@ -2676,7 +2676,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: -0.020986129, y: -0.00000002988822, z: -6.2737615e-10, w: 0.99977976}
-  m_LocalPosition: {x: 0, y: 1.3629999, z: -5}
+  m_LocalPosition: {x: 4.36, y: 1.3629999, z: -1.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2747,7 +2747,7 @@ Transform:
   m_GameObject: {fileID: 994109129}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.073, z: 0}
+  m_LocalPosition: {x: 4.36, y: 1.073, z: 3.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3167,7 +3167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4121,7 +4121,7 @@ Transform:
   m_GameObject: {fileID: 1666509230}
   serializedVersion: 2
   m_LocalRotation: {x: -0.020986127, y: -0.000000029888216, z: -6.2737593e-10, w: 0.9997798}
-  m_LocalPosition: {x: 0, y: 1.3629999, z: -5}
+  m_LocalPosition: {x: 4.36, y: 1.3629999, z: -1.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4627,6 +4627,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08fa6078c715e65499f2cab28f34c6b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnAuthCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1809974341}
+        m_TargetAssemblyTypeName: MessageReceiverManager, Assembly-CSharp
+        m_MethodName: GetMessages
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1841263185
 GameObject:
   m_ObjectHideFlags: 0
