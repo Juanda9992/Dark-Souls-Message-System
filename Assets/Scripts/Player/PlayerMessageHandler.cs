@@ -7,7 +7,8 @@ using UnityEngine.InputSystem;
 public class PlayerMessageHandler : MonoBehaviour
 {
     [SerializeField] private UnityEvent OnStartWriting;
-    [SerializeField] private InputActionReference writeAction,readAction;
+    [SerializeField] private GameObject interactCanvas;
+    [SerializeField] private InputActionReference writeAction, readAction;
     [SerializeField] private MessageConstructorUI messageConstructorUI;
     [SerializeField] private MessageReaderUI messageReaderUI;
 
@@ -17,8 +18,8 @@ public class PlayerMessageHandler : MonoBehaviour
     {
         writeAction.action.Enable();
         readAction.action.Enable();
-        writeAction.action.started += _=>SetUpWriting();
-        readAction.action.started += _=>ReadMessage();
+        writeAction.action.started += _ => SetUpWriting();
+        readAction.action.started += _ => ReadMessage();
         CursorManager.HideCursor();
     }
 
@@ -35,7 +36,7 @@ public class PlayerMessageHandler : MonoBehaviour
 
     private void ReadMessage()
     {
-        if(messageObject != null)
+        if (messageObject != null)
         {
             messageObject.particlesObj.SetActive(false);
             messageReaderUI.OpenMessage(messageObject.messageWritten);
@@ -44,18 +45,20 @@ public class PlayerMessageHandler : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent<MessageObjectInWorld>(out MessageObjectInWorld _messageObject))
+        if (other.TryGetComponent<MessageObjectInWorld>(out MessageObjectInWorld _messageObject))
         {
             messageObject = _messageObject;
-            Debug.Log("Encountered Object");
+            interactCanvas.SetActive(true);
+            interactCanvas.transform.position = messageObject.transform.position + (Vector3.up * 2);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if(other.TryGetComponent<MessageObjectInWorld>(out messageObject))
+        if (other.TryGetComponent<MessageObjectInWorld>(out messageObject))
         {
-            messageObject = null;       
+            messageObject = null;
+            interactCanvas.gameObject.SetActive(false);
         }
     }
 }
