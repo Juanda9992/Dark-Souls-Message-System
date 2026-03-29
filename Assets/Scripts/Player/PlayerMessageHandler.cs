@@ -37,6 +37,7 @@ public class PlayerMessageHandler : MonoBehaviour
     {
         if(messageObject != null)
         {
+            messageObject.particlesObj.SetActive(false);
             messageReaderUI.OpenMessage(messageObject.messageWritten);
         }
     }
