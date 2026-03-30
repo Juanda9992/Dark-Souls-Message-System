@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Juanda.SoundSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -44,6 +45,7 @@ public class MessageConstructorUI : MonoBehaviour
 
     public void OnShowPanel()
     {
+        SoundManager.instance.PlaySoundByName("MenuOpen");
         panelMessage.SetActive(true);
         defaultTemplateButton.onClick?.Invoke();
         CursorManager.ShowCursor();

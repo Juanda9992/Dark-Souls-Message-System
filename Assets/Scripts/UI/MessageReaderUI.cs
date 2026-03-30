@@ -1,3 +1,4 @@
+using Juanda.SoundSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,13 +16,14 @@ public class MessageReaderUI : MonoBehaviour
     public void OpenMessage(string text)
     {
         CursorManager.ShowCursor();
-        Debug.Log("Opened Message");
+        SoundManager.instance.PlaySoundByName("MenuOpen");
         messagePanel.SetActive(true);
         messageText.text = text;
     }
 
     public void OnPanelClose()
     {
+        SoundManager.instance.PlaySoundByName("MenuOpen");
         CursorManager.HideCursor();
         messagePanel.SetActive(false);
     }

@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.juanda.audiosystem": {
+      "version": "https://github.com/Juanda9992/AudioSystem.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "68b5d04b504f4102fb3d517ae8e3ccde0bc051ea"
+    },
     "com.unity.burst": {
       "version": "1.8.21",
       "depth": 1,

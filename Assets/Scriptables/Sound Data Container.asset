@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd25f95b77b44643aca2ad8bf7d7797, type: 3}
+  m_Name: Sound Data Container
+  m_EditorClassIdentifier: 
+  soundDataList:
+  - soundName: UI Click
+    _audioClip: {fileID: 8300000, guid: c927f406e2927e74e887822aa89c1b5d, type: 3}
+    volume: 1
+  - soundName: Send Message
+    _audioClip: {fileID: 8300000, guid: 2d87baded0c845249a4520b309c533a8, type: 3}
+    volume: 1
+  - soundName: MenuOpen
+    _audioClip: {fileID: 8300000, guid: 69aa992baa4b77148a2335c03fc0c8d1, type: 3}
+    volume: 1
+  - soundName: Error
+    _audioClip: {fileID: 8300000, guid: 69aa992baa4b77148a2335c03fc0c8d1, type: 3}
+    volume: 1

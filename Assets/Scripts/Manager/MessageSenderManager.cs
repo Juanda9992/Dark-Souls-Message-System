@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Firebase.Firestore;
-using Firebase.Extensions;
+using Juanda.SoundSystem;
 public class MessageSenderManager : MonoBehaviour
 {
     [SerializeField] private MessageInstantiatingManager messageInstantiatingManager;
@@ -27,6 +26,8 @@ public class MessageSenderManager : MonoBehaviour
 
         db.Collection("messages").AddAsync(message);
         messageInstantiatingManager.CreateMessageLocally(playerForwardPos, playerTransform.rotation.eulerAngles.y, messageCreated);
+
+        SoundManager.instance.PlaySoundByName("Send Message");
     }
     [ContextMenu("Check Ground Pos")]
     private Vector3 CheckGroundPos()

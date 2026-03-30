@@ -1,3 +1,4 @@
+using Juanda.SoundSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ public class MessageCooldownManager : MonoBehaviour
     [SerializeField] private float cooldownTimer;
     public  bool canSendMessage => currentCooldownTimer >= cooldownTimer; 
     private float currentCooldownTimer;
+    private bool soundPlayed = false;
 
     void Awake()
     {
@@ -23,8 +25,10 @@ public class MessageCooldownManager : MonoBehaviour
 
         cooldownProgressBar.value = currentCooldownTimer;
 
-        if(canSendMessage)
+        if(canSendMessage && !soundPlayed)
         {
+            soundPlayed = true;
+            SoundManager.instance.PlaySoundByName("Correct");
             cooldownLabel.text = "You can send a message!";
             cooldownLabel.color = Color.green;       
         }
@@ -33,10 +37,13 @@ public class MessageCooldownManager : MonoBehaviour
     public void OnMessageSent()
     {
         currentCooldownTimer = 0;
+        soundPlayed = false;
+        ShowCooldownEnabledLabel();
     }
 
     public void ShowCooldownEnabledLabel()
     {
+        SoundManager.instance.PlaySoundByName("Error");
         cooldownLabel.text = "You cannot send a message now!";
         cooldownLabel.color = Color.red;
     }

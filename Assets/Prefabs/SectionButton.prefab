@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 4781089124057159678}
   - component: {fileID: 1754834783170435445}
   - component: {fileID: 2176219400635670236}
+  - component: {fileID: 2757479058572698835}
   m_Layer: 5
   m_Name: SectionButton
   m_TagString: Untagged
@@ -255,3 +256,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2757479058572698835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7877056234129030315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e56d3a66c6093744bfb7182bbb5df8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 2176219400635670236}
