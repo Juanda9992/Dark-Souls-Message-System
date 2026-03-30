@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
 {
+    [SerializeField] private CapsuleCollider playerCollider;
     [SerializeField] private Animator playerAnimator;
 
     public void SetPlayerWalkingState(bool isMoving)
@@ -12,6 +13,7 @@ public class PlayerAnimations : MonoBehaviour
     }
     public void SetPlayerWriting(bool writing)
     {
+        playerCollider.height = writing ? 0.2f : 2;
         playerAnimator.SetBool("Writing",writing);
     }
 }
