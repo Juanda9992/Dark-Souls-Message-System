@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Firebase.Firestore;
 using UnityEngine;
 
 public class MessageInstantiatingManager : MonoBehaviour
@@ -26,6 +23,8 @@ public class MessageInstantiatingManager : MonoBehaviour
     public void CreateMessageLocally(Vector3 position,float yRotation,string message)
     {
         MessageObjectInWorld obj = Instantiate(messageObjectPrefab, position, Quaternion.Euler(0,yRotation,0));
+
+        Debug.Log("Created message at: " + position);
     
         obj.SetUpObject(message,messageReaderUI);
     }

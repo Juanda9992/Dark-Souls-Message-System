@@ -31,7 +31,9 @@ public class MessageSenderManager : MonoBehaviour
     [ContextMenu("Check Ground Pos")]
     private Vector3 CheckGroundPos()
     {
-        Vector3 playerForwardPos = playerTransform.position + playerTransform.forward.normalized;
+        Vector3 playerForwardPos = playerTransform.position + playerTransform.forward;
+        
+        playerForwardPos.y+=2;
         RaycastHit hit;
 
         Vector3 groundPos = Vector3.zero;

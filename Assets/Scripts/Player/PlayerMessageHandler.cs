@@ -11,6 +11,7 @@ public class PlayerMessageHandler : MonoBehaviour
     [SerializeField] private InputActionReference writeAction, readAction;
     [SerializeField] private MessageConstructorUI messageConstructorUI;
     [SerializeField] private MessageReaderUI messageReaderUI;
+    [SerializeField] private MessageCooldownManager messageCooldownManager;
 
     private MessageObjectInWorld messageObject;
     private float timeToActivateMessageCanvas = 2f;
@@ -25,6 +26,11 @@ public class PlayerMessageHandler : MonoBehaviour
 
     private void SetUpWriting()
     {
+        if(!messageCooldownManager.canSendMessage)
+        {
+            messageCooldownManager.ShowCooldownEnabledLabel();
+            return;
+        }
         OnStartWriting?.Invoke();
         StartCoroutine("EnableWriteCanvasWithDelay");
     }
