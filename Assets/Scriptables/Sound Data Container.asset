@@ -25,3 +25,6 @@ MonoBehaviour:
   - soundName: Error
     _audioClip: {fileID: 8300000, guid: 69aa992baa4b77148a2335c03fc0c8d1, type: 3}
     volume: 1
+  - soundName: Correct
+    _audioClip: {fileID: 8300000, guid: 9266d8897c3357549910250606c56db1, type: 3}
+    volume: 1
