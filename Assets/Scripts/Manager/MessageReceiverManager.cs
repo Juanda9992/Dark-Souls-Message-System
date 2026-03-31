@@ -6,7 +6,7 @@ public class MessageReceiverManager : MonoBehaviour
 {
     [SerializeField] private MessageInstantiatingManager messageInstantiatingManager;
     private FirebaseFirestore db;
-    void Awake()
+    void Start()
     {
         db = FirebaseFirestore.DefaultInstance;
     }

@@ -8,7 +8,7 @@ public class MessageSenderManager : MonoBehaviour
     [SerializeField] private Transform playerTransform;
     private FirebaseFirestore db;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         db = FirebaseFirestore.DefaultInstance;
     }
